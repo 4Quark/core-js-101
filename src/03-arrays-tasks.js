@@ -246,8 +246,16 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  // throw new Error('Not implemented');
+  const newArr = [];
+  let sum = 0;
+  arr.map((i) => {
+    sum += i;
+    newArr.push(sum);
+    return sum;
+  });
+  return newArr;
 }
 
 /**
@@ -281,8 +289,14 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  // throw new Error('Not implemented');
+  const newArr = [];
+  arr.map((i, index) => {
+    newArr.push(Array(index + 1).fill(i));
+    return i;
+  });
+  return newArr.flat(1);
 }
 
 
@@ -460,8 +474,15 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  // throw new Error('Not implemented');
+  const newArr = Array(n).fill(Array(n).fill(1));
+  const result = newArr.map((elem, i) => elem.map((num, j) => {
+    let number = 0;
+    if (i === j) number = 1;
+    return number;
+  }));
+  return result;
 }
 
 /**
@@ -574,6 +595,16 @@ function selectMany(/* arr, childrenSelector */) {
  */
 function getElementByIndexes(/* arr, indexes */) {
   throw new Error('Not implemented');
+  // // eslint-disable-next-line no-console
+  // console.log(arr);
+  // // eslint-disable-next-line no-console
+  // console.log(`indexes${indexes}`);
+  // let i = 0;
+  // while (i < indexes.length) {}
+  // const first = arr[indexes[0]][indexes[1]];
+  // // eslint-disable-next-line no-console
+  // console.log(first);
+  // return first;
 }
 
 
@@ -595,8 +626,22 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  // throw new Error('Not implemented');
+  const newArr = [];
+  const head = arr.slice(0, Math.floor(arr.length / 2));
+  const tail = arr.slice(Math.ceil(arr.length / 2), arr.length);
+  if (arr.length === 1) {
+    return arr;
+  } if (arr.length % 2) {
+    newArr.push(tail);
+    newArr.push(arr[Math.floor(arr.length / 2)]);
+    newArr.push(head);
+  } else {
+    newArr.push(tail);
+    newArr.push(head);
+  }
+  return newArr.flat(1);
 }
 
 

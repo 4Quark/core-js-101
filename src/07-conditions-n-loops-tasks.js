@@ -27,8 +27,17 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  // throw new Error('Not implemented');
+  let result;
+  if ((num % 3 === 0) && (num % 5 === 0)) {
+    result = 'FizzBuzz';
+  } else if (num % 3 === 0) {
+    result = 'Fizz';
+  } else if (num % 5 === 0) {
+    result = 'Buzz';
+  } else result = num;
+  return result;
 }
 
 
@@ -43,8 +52,13 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  // throw new Error('Not implemented');
+  let factorial = 1;
+  for (let i = 1; i <= n; i += 1) {
+    factorial *= i;
+  }
+  return factorial;
 }
 
 
@@ -60,8 +74,13 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  // throw new Error('Not implemented');
+  let sum = 0;
+  for (let i = n1; i <= n2; i += 1) {
+    sum += i;
+  }
+  return sum;
 }
 
 
@@ -80,8 +99,11 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  // throw new Error('Not implemented');
+  let state = false;
+  if (a + b > c && a + c > b && b + c > a) state = true;
+  return state;
 }
 
 
@@ -148,8 +170,14 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  // throw new Error('Not implemented');
+  let state = false;
+  const first = circle.center.x - point.x;
+  const second = circle.center.y - point.y;
+  const { radius } = circle;
+  if (first * first + second * second < radius * radius) state = true;
+  return state;
 }
 
 
@@ -254,6 +282,7 @@ function isCreditCardNumber(/* ccn */) {
   throw new Error('Not implemented');
 }
 
+
 /**
  * Returns the digital root of integer:
  *   step1 : find sum of all digits
@@ -270,6 +299,24 @@ function isCreditCardNumber(/* ccn */) {
  */
 function getDigitalRoot(/* num */) {
   throw new Error('Not implemented');
+  // function func(numm) {
+  //   const numStr = numm.toString();
+  //   // eslint-disable-next-line no-console
+  //   console.log(numStr, numStr.length);
+  //   let sum = 0;
+  //   for (let i = 0; i < numStr.length; i += 1) {
+  //     sum += +numStr[i];
+  //     // eslint-disable-next-line no-console
+  //     console.log(i, numStr[i]);
+  //   }
+  //   // eslint-disable-next-line no-console
+  //   console.log(sum, sum.toString(), sum.toString().length);
+  //   if (sum.toString().length > 1) {
+  //     func(sum);
+  //   }
+  //   return sum;
+  // }
+  // return func(num);
 }
 
 
